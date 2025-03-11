@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct PHANSO {
+    float tu;  
+    float mau; 
+};
+
+
+void Nhap(PHANSO &x);
+void Xuat(const PHANSO &x);
+int Kiemtra(const PHANSO &x);
+
+int main() {
+    PHANSO x;
+    Nhap(x);
+    int kq = Kiemtra(x);
+    Xuat(x);
+
+    if (kq < 0) {
+        cout << "Phan so < 0" << endl;
+    } else if (kq > 0) {
+        cout << "Phan so > 0" << endl;
+    } else {
+        cout << "Phan so = 0" << endl;
+    }
+
+    return 0;
+}
+
+void Nhap(PHANSO &x) {
+    cout << "Tu so: ";
+    cin >> x.tu;
+    cout << "Mau so: ";
+    cin >> x.mau;
+}
+
+void Xuat(const PHANSO &x) {
+    cout << "Tu so = " << x.tu << endl;
+    cout << "Mau so = " << x.mau << endl;
+}
+
+int Kiemtra(const PHANSO &x) {
+    if (x.tu * x.mau > 0) {
+        return 1;
+    } else if (x.tu * x.mau < 0) {
+        return -1;
+    }
+    return 0;
+}
