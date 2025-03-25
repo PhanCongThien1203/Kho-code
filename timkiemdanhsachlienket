@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct NODE{
+    int info;
+    NODE* pNext;
+};
+struct LIST{
+    NODE* pHead;
+    NODE* pTail;
+};
+void CreateEmptyList(LIST &L) {
+    L.pHead = NULL;
+    L.pTail = NULL;
+    }
+void AddTail(LIST &L, NODE* p) {
+        if (L.pHead == NULL) {
+        L.pHead = p;
+        L.pTail = L.pHead;
+        }
+        else {
+        L.pTail->pNext=p;
+        L.pTail = p;
+        }
+        }
+        void CreateList(LIST &L) {
+            int p;
+        
+            for (;;) { 
+                cin >> p;
+        
+                if (p == -1) { 
+                    break;
+                }
+        
+                NODE* newNode = new NODE;
+                newNode->info = p;
+                newNode->pNext = NULL;
+        
+               
+                AddTail(L, newNode);
+            }
+        }       
+        bool SearchValue(NODE* pHead, int X) {
+            NODE* temp = pHead;
+            while (temp != NULL) {
+                if (temp->info == X) { 
+                    return true;
+                }
+                temp = temp->pNext;
+            }
+            return false; 
+        }
+int main() {
+    LIST L;
+	int X;
+	CreateEmptyList(L);
+
+	CreateList(L);
+	std::cin >> X;
+	cout << searchX(L.pHead, X);
+
+    return 0;
+}
